@@ -37,3 +37,11 @@ class MattNeural:
     def run(input, weights):
         for i in range(0, len(input)):
             print(MattNeural.soma(input[i],weights))
+
+"""
+from NeuralNetworkBase import *
+
+data = MattNeural.readData("orcs.csv")
+weights = MattNeural.training(data, 0.01, 7000)
+MattNeural.run(data, weights)
+"""
