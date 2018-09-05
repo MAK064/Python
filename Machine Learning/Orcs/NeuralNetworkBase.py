@@ -30,10 +30,18 @@ class MattNeural:
 
     def training(data_list, learn_rate = 0.1, epochs = 50):
         weights = train(data_list, learn_rate, epochs)
-        print(weights)
-        print(data_list)
+        print("Weights used: " + str(weights))
+        print("Training data used: \n" + str(data_list))
         return weights
 
     def run(input, weights):
         for i in range(0, len(input)):
             print(MattNeural.soma(input[i],weights))
+
+"""
+from NeuralNetworkBase import *
+
+data = MattNeural.readData("orcs.csv")
+weights = MattNeural.training(data, 0.01, 7000)
+MattNeural.run(data, weights)
+"""
