@@ -5,13 +5,15 @@ operate = FileOperations()
 
 def axon(ax_in):
     output = 1
-    if ax_in <= 0:
+    if ax_in < 0:
         output = 0
     return output
 
-def soma(speed, straight_legged, threshold, w1, w2):
+def soma(dimension_list, weight_list):
     x = 0
-    x = straight_legged*w1 + speed*w2 + threshold
+    for line in range(0,len(dimension_list)-1):
+        x += dimension_list[line] * weight_list[line+1]
+    x += weight_list[0]
     y = axon(x)
     return y
 
@@ -30,5 +32,5 @@ weights = train(training_data,learn_rate,epochs)
 print(weights)
 print(training_data)
 
-for i in range(1, len(training_data)):
-    print(soma(training_data[i][0],training_data[i][1],weights[0],weights[1],weights[2]))
+for i in range(0, len(training_data)):
+    print(soma(training_data[i],weights))
