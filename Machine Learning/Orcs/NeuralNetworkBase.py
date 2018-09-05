@@ -31,12 +31,15 @@ class MattNeural:
     def training(data_list, learn_rate = 0.1, epochs = 50):
         weights = train(data_list, learn_rate, epochs)
         print("Weights used: " + str(weights))
-        print("Training data used: \n" + str(data_list))
+        print("\nTraining data used: \n" + str(data_list))
         return weights
 
     def run(input, weights):
+        output = ""
+        print("\nResults:\n")
         for i in range(0, len(input)):
-            print(MattNeural.soma(input[i],weights))
+            output += str(MattNeural.soma(input[i],weights)) + ("\n")
+        print(output)
 
 """
 from NeuralNetworkBase import *
